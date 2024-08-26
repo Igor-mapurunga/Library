@@ -1,4 +1,4 @@
-public class Member {
+public abstract class Member {
     private String name;
     private String cpf;
     private int id;
@@ -75,4 +75,6 @@ public class Member {
     public void setEmail(String email) {
         this.email = email;
     }
+    public abstract void displayMemberType();
+    public abstract double calculateMembershipFee();
 }

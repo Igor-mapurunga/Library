@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -52,24 +53,32 @@ public class Library {
             }
         }
         books.add(book);
-        System.out.println("The book: " + book.getName() + "was added successfully");
+        System.out.println("The book: " + book.getName() + " was added successfully");
     }
 
-    public void removeBook(Book book) {
-        System.out.println("Do you really want to remove the following book? " + book.getName() );
-        String answer = sc.nextLine();
-        if (answer == "y"){
-            books.remove(book);
-        }else {
-            System.out.println("the process of removing the book was canceled.");
+    public void removeBook(int theId) {
+        Scanner sc = new Scanner(System.in);
+        Iterator<Book> iterator = books.iterator();
+
+        while (iterator.hasNext()) {
+            Book b = iterator.next();
+            if (b.getId() == theId){
+                System.out.println("Do you really want to remove the following book? " + b.getName() );
+                String answer = sc.nextLine();
+                if (answer.equals("y")){
+                    books.remove(b);
+                    System.out.println("Book removed successfully");
+                }else {
+                    System.out.println("the process of removing the book was canceled.");
+                }
+                break;
+            }
         }
     }
 
     public void updateBook(int bookId){
         Scanner sc = new Scanner(System.in);
         boolean bookFound = false;
-
-
         for (Book b : books){
             if (b.getId() == bookId){
                 bookFound = true;
