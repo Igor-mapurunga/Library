@@ -5,16 +5,18 @@ public class Book {
     private String type;
     private int yearOfPublish;
     private int id;
+    private String publisher;
 
     public Book() {
 
     }
-    public Book(String name, String autor, String type, int yearOfPublish, int id) {
+    public Book(String name, String autor, String type, int yearOfPublish, int id, String publisher) {
         this.name = name;
         this.author = autor;
         this.type = type;
         this.yearOfPublish = yearOfPublish;
         this.id = id;
+        this.publisher = publisher;
     }
 
     public String getName() {
@@ -53,5 +55,25 @@ public class Book {
     }
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", type='" + type + '\'' +
+                ", yearOfPublish=" + yearOfPublish +
+                ", id=" + id +
+                ", publisher='" + publisher + '\'' +
+                '}';
     }
 }
